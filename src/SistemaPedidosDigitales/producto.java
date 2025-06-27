@@ -28,3 +28,12 @@ public class producto {
         return nombre + " - S/ " + precio;
     }
 }
+
+public producto(String codigo, String nombre, double precio) {
+    if (precio < 0) {
+        throw new IllegalArgumentException("El precio no puede ser negativo");
+    }
+    this.codigo = codigo;
+    this.nombre = nombre;
+    this.precio = precio;
+}
