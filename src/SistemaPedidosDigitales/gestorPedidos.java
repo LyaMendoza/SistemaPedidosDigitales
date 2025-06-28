@@ -14,7 +14,7 @@ public class gestorPedidos {
         mapaProductos = new HashMap<>();
     }
 
-    // Método original
+    // Método original//
     public void agregarProducto(producto p) {
         listaProductos.add(p);
         mapaProductos.put(p.getCodigo(), p);
