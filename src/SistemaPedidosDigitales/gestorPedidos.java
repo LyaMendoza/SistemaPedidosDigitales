@@ -38,7 +38,7 @@ public class gestorPedidos {
         return mapaProductos.get(codigo);
     }
 
-    //excepción 
+    //excepción ////
     public producto buscarProductoPorCodigo(String codigo) throws ProductoNoEncontradoException {
         for (producto p : listaProductos) {
             if (p.getCodigo().equals(codigo)) {
