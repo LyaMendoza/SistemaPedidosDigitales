@@ -20,7 +20,7 @@ public class gestorPedidos {
         mapaProductos.put(p.getCodigo(), p);
     }
 
-    // Método sobrecargado
+    // Método sobrecargado///
     public void agregarProducto(String codigo, String nombre, double precio) {
     	producto nuevoProducto = new producto(codigo, nombre, precio);
         listaProductos.add(nuevoProducto);
