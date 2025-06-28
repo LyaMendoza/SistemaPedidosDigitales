@@ -48,12 +48,12 @@ public class gestorPedidos {
         throw new ProductoNoEncontradoException("Producto con código " + codigo + " no encontrado.");
     }
 
-    // validación-errores
+    // validación-errores///////
     public double calcularPrecioConDescuento(double descuento) {
         if (descuento < 0 || descuento > 100) {
             throw new IllegalArgumentException("El descuento debe estar entre 0% y 100%");
         }
-        double precioBase = 100.0; //ejm
+        double precioBase = 100.0; //ejemplo
         return precioBase - (precioBase * descuento / 100);
     }
 }
