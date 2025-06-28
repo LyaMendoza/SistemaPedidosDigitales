@@ -33,7 +33,7 @@ public class gestorPedidos {
         }
     }
 
-    //HashMap
+    //HashMap///
     public producto obtenerProductoPorCodigo(String codigo) {
         return mapaProductos.get(codigo);
     }
