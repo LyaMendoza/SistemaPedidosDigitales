@@ -10,6 +10,7 @@ public class main {
 
         //método sobrecargado
         gestor.agregarProducto("P001", "Audífonos", 59.90);
+        gestor.agregarProducto("P002", "Teclado", 120.00);
 
         //try-catch
         try {
@@ -29,5 +30,15 @@ public class main {
 
         System.out.println("\nProductos registrados:");
         gestor.mostrarProductos();
+        
+        try {
+            gestor.eliminarProductoPorCodigo("P001");
+        } catch (ProductoNoEncontradoException e) {
+            System.out.println("Error al eliminar: " + e.getMessage());
+        }
+
+        // Guardar en archivo
+        gestor.guardarProductoEnArchivo();
+        
     }
 }

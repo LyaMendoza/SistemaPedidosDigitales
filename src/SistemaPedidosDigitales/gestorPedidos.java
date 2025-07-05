@@ -2,6 +2,8 @@ package SistemaPedidosDigitales;
 
 import excepciones.ProductoNoEncontradoException;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -55,5 +57,27 @@ public class gestorPedidos {
         }
         double precioBase = 100.0; //ejemplo
         return precioBase - (precioBase * descuento / 100);
+    }
+    //Eliminar producto
+    public void eliminarProductoPorCodigo(String codigo) throws ProductoNoEncontradoException {
+    	producto eliminado= mapaProductos.remove(codigo);
+    	if(eliminado== null) {
+    		throw new ProductoNoEncontradoException("No se puede eliminar: Producto con código"+codigo+" no existe" );
+    	}
+    	listaProductos.removeIf(p ->p.getCodigo().equals(codigo));
+    	  System.out.println("Producto con código"+codigo+" eliminado correctamente ");
+    }
+    
+    //Guardar Producto txt
+    public void guardarProductoEnArchivo() {
+        try (FileWriter writer = new FileWriter("productos.txt")) {
+        	for(producto p : listaProductos) {
+        		writer.write(p.getCodigo()+","+p.getNombre()+","+p.getPrecio()+"\n");
+        		       		
+        	}
+        	 System.out.println("Archivo productos.txt generado correctamente.");        	            
+        } catch (IOException e) {
+            System.out.println("Error al generar archivo:"+ e.getMessage()); 
+        }
     }
 }
